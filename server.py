@@ -139,6 +139,7 @@ class Server(object):
         argument = argument.strip().lower()
         if argument not in ['north', 'south', 'east', 'west']:
             self.output_buffer = "Invalid direction"
+            return
         elif argument == 'north' and self.room == 0:
             self.room = 3
         elif argument == 'south' and self.room == 3:
@@ -170,7 +171,7 @@ class Server(object):
         :return: None
         """
 
-        return f'You say, "{argument}"'
+        self.output_buffer = f'You say, "{argument}"'
 
     def quit(self, argument):
         """
